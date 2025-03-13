@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Iframe Example</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  iframe {
+    height: 100vh;
+    border: none; /* Убираем рамку */
+  }
+  #menu {
+    width: 200px;
+    float: left; /* Для вертикального размещения */
+  }
+  #content {
+    width: 800px;
+    float: left; /* Для вертикального размещения */
+  }
+</style>
+</head>
+<body>
+  <iframe id="menu" src="menu.html"></iframe>
+  <iframe id="content" src="content1.html"></iframe> <!-- Начальная страница контента -->
+</body>
+</html>
