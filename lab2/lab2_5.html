@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма</title>
+    <style>
+        fieldset {
+            border: none;
+            padding: 0;
+        }
+        legend {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Форма регистрации пользователя</h1>
+    <form action="#" method="post">
+
+        <fieldset>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required><br><br>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" placeholder="Придумайте пароль" required><br><br>
+
+            <label for="birthdate">Дата рождения:</label>
+            <input type="date" id="birthdate" name="birthdate"><br>
+            <small>Формат: ДД.ММ.ГГГГ</small><br><br>
+        </fieldset>
+
+        <fieldset>
+            <p>Пол:</p>
+            <label><input type="radio" name="gender" value="male" id = "male"> Мужской</label><br>
+            <label><input type="radio" name="gender" value="female" id = "female"> Женский</label><br><br>
+
+            <p>Предпочитаемые языки:</p>
+            <label><input type="checkbox" name="languages" value="russian" checked disabled> Русский</label><br>
+            <label><input type="checkbox" name="languages" value="english"> Английский</label><br>
+            <label><input type="checkbox" name="languages" value="spanish"> Испанский</label><br><br>
+
+            <label for="bio">О себе:</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Расскажите о себе"></textarea><br><br>
+        </fieldset>
+
+        <input type="submit" value="Готово">
+        <input type="reset" value="Очистить">
+    </form>
+</body>
+</html>
+
