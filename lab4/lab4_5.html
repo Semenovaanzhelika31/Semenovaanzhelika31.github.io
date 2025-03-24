@@ -30,11 +30,11 @@
             padding: 1px 12px;
             text-decoration: none;
             color: #333;
-            background-image: url("pic/minus.gif");
+            background-image: url("pic/plus.gif"); 
             background-repeat: no-repeat;
-            background-position: 5px center; 
-            padding-left: 30px;  
-            transition: background-color 0.3s;
+            background-position: 5px center;
+            padding-left: 30px;
+            transition: background-color 0.3s, background-image 0.3s; 
         }
 
         .menu li li a {
@@ -44,8 +44,8 @@
             color: #333;
             background-image: url("pic/point.gif");
             background-repeat: no-repeat;
-            background-position: 5px center; 
-            padding-left: 30px;  
+            background-position: 5px center;
+            padding-left: 30px;
             transition: background-color 0.3s;
         }
 
@@ -54,12 +54,16 @@
         }
 
         .menu ul ul {
-            display: none; 
+            display: none;
             padding-left: 30px;
         }
 
         .menu li:hover > ul {
-            display: block; 
+            display: block;
+        }
+
+        .menu li:hover > a {
+            background-image: url("pic/minus.gif"); 
         }
     </style>
 </head>
