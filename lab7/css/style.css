@@ -182,6 +182,7 @@ border-radius: 3px;
 }
 
 element.style {
+  display: none;
 }
 .social li:first-child {
 margin-left: 0;
@@ -201,4 +202,73 @@ background-position: -1px -87px;
 
 .social li a i.linkedin {
 background-position: -36px -85px;
+}
+
+#work {
+  text-align: center;
+}
+
+#work .row {
+  background: #f35e59;
+  color: #fff;
+  padding: 20px; 
+}
+
+.project-list {
+  list-style: none;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 0 0 5px #aaa;
+  background: #FFF;
+  border-radius: 3px;
+  color: black;
+  overflow: hidden; 
+}
+
+.project-list-desc {
+  float: left;
+  width: 20%;
+  min-width: 100px;
+  padding-right: 10px; 
+}
+
+.project-list-img {
+  float: left;
+  width: 75%;
+}
+
+footer .footer-content {
+  text-align: right;
+  background: #2a2a2a;
+  padding: 1em;
+  color: #fff;
+}
+.list-container {
+  list-style: none;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 0 0 5px #aaa;
+  background: #FFF;
+  border-radius: 3px;
+  overflow: hidden; 
+}
+
+.list1_img {
+  float: left; 
+  width: 30%; 
+  padding-right: 10px; 
+}
+
+.list1_desc {
+  float: left; 
+  width: 70%; 
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+#method {
+  text-align: center;
 }
