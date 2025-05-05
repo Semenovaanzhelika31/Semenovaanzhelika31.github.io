@@ -32,14 +32,14 @@
                 let rowData = [];
 
                 for (let j = 0; j < 6; j++) {
-                    if (dogCount > 0 && (dogCount + catCount) > 0) {
+                    if (dogCount > 0) {
                         rowData.push("dog");
                         dogCount--;
-                    } else if (catCount > 0 && (dogCount + catCount) > 0) {
+                    } else if (catCount > 0) {
                         rowData.push("cat");
                         catCount--;
                     } else { 
-                    
+
                         dogCount = 3;
                         catCount = 2;
                         rowData.push("dog");
@@ -49,10 +49,10 @@
 
                 const rowString = rowData.join(", ");
                 uniqueRows.add(rowString);
-                console.log(rowString); 
             }
 
-            console.log("Уникальные строки:", Array.from(uniqueRows));
+            console.log("Уникальные строки:");
+            uniqueRows.forEach(row => console.log(row));
         }
     </script>
 
