@@ -29,11 +29,11 @@
 
         function calculatePension() {
             const age = parseInt(document.getElementById("age").value);
-            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
             const resultArea = document.getElementById("result");
 
-            if (isNaN(age)) {
-                resultArea.value = "Пожалуйста, введите корректный возраст.";
+            if (isNaN(age) || !gender) {
+                resultArea.value = "Пожалуйста, введите корректный возраст и выберите пол.";
                 return;
             }
 
@@ -41,11 +41,11 @@
 
             if (age >= 0 && age <= 17) {
                 message = "Вам работать ещё рано — учитесь";
-            } else if ((age >= 18 && age <= 59 && gender === "male") || (age >= 18 && age <= 54 && gender === "female")) {
+            } else if ((age >= 18 && age <= 59 && gender.value === "male") || (age >= 18 && age <= 54 && gender.value === "female")) {
                 message = "Вам ещё работать и работать";
-            } else if ((age >= 60 && age <= 64 && gender === "male") || (age >= 55 && age <= 59 && gender === "female")) {
+            } else if ((age >= 60 && age <= 64 && gender.value === "male") || (age >= 55 && age <= 59 && gender.value === "female")) {
                 message = "Скоро пенсия!";
-            } else if ((age >= 65 && gender === "male") || (age >= 60 && gender === "female")) {
+            } else if ((age >= 65 && gender.value === "male") || (age >= 60 && gender.value === "female")) {
                 message = "Вам пора на пенсию";
             } else {
                 message = "Да кто ты такой?";
@@ -57,4 +57,3 @@
 
 </body>
 </html>
-
