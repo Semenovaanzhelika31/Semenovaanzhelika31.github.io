@@ -2,56 +2,59 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Таблица животных</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
+    <title>Вывод в консоль</title>
 </head>
 <body>
 
-    <h1>Таблица животных</h1>
+    <h1>Вывод животных в консоль</h1>
 
     <label for="rows">Введите количество строк:</label>
     <input type="number" id="rows" name="rows" min="1" required><br><br>
 
     <button type="button" onclick="drawTable()">Рисовать</button>
 
-    <table id="animalTable"></table>
-
     <script>
         'use strict';
 
         function drawTable() {
             const rows = parseInt(document.getElementById("rows").value);
-            const table = document.getElementById("animalTable");
-            table.innerHTML = ""; 
 
             if (isNaN(rows) || rows < 1) {
                 alert("Пожалуйста, введите корректное количество строк (больше или равное 1).");
                 return;
             }
 
-            const sequence = ["dog", "dog", "dog", "cat", "cat", "dog"];
+            const uniqueRows = new Set();
+            let dogCount = 3; 
+            let catCount = 2; 
 
             for (let i = 0; i < rows; i++) {
-                let row = table.insertRow(); 
+                let rowData = [];
+
                 for (let j = 0; j < 6; j++) {
-                    let cell = row.insertCell(); 
-                    cell.textContent = sequence[(i + j) % 6]; 
+                    if (dogCount > 0 && (dogCount + catCount) > 0) {
+                        rowData.push("dog");
+                        dogCount--;
+                    } else if (catCount > 0 && (dogCount + catCount) > 0) {
+                        rowData.push("cat");
+                        catCount--;
+                    } else { 
+                    
+                        dogCount = 3;
+                        catCount = 2;
+                        rowData.push("dog");
+                        dogCount--; 
+                    }
                 }
+
+                const rowString = rowData.join(", ");
+                uniqueRows.add(rowString);
+                console.log(rowString); 
             }
+
+            console.log("Уникальные строки:", Array.from(uniqueRows));
         }
     </script>
 
 </body>
 </html>
-
