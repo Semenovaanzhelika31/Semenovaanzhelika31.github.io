@@ -24,35 +24,19 @@
                 return;
             }
 
-            const uniqueRows = new Set();
-            let dogCount = 3; 
-            let catCount = 2; 
-
-            for (let i = 0; i < rows; i++) {
-                let rowData = [];
-
-                for (let j = 0; j < 6; j++) {
-                    if (dogCount > 0) {
-                        rowData.push("dog");
-                        dogCount--;
-                    } else if (catCount > 0) {
-                        rowData.push("cat");
-                        catCount--;
-                    } else { 
-
-                        dogCount = 3;
-                        catCount = 2;
-                        rowData.push("dog");
-                        dogCount--; 
+            let generateTable = function(rows) {
+                const animals = ['dog', 'dog', 'dog', 'cat', 'cat'];
+                
+                for (let i = 0; i < rows; i++) {
+                    let row = '';
+                    for (let j = 0; j < 6; j++) {
+                        row += animals[(j + i) % animals.length] + '\t'; 
                     }
+                    console.log(row);
                 }
-
-                const rowString = rowData.join(", ");
-                uniqueRows.add(rowString);
             }
 
-            console.log("Уникальные строки:");
-            uniqueRows.forEach(row => console.log(row));
+            generateTable(rows); 
         }
     </script>
 
