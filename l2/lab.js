@@ -117,3 +117,19 @@ function sum(...args) {
 // console.log(sum());       // 0
 // console.log(sum(1));      // 1
 // console.log(sum(1, 2));   // 3
+
+/**
+ * Добавляет свойство с символом 'blackSpot' к объекту.
+ *
+ * @param {Object} obj Объект, к которому будет добавлено свойство.
+ * @return {Object} Объект с добавленным свойством 'blackSpot'.
+ */
+function addBlackSpot(obj) {
+  obj[Symbol.for('blackSpot')] = true;
+  return obj;
+}
+
+// Примеры использования
+let myObject = {};
+addBlackSpot(myObject);
+console.log(myObject[Symbol.for('blackSpot')]); // true
