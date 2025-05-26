@@ -4,12 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>textarea</title>
+    <title>Editable Div</title>
+    <style>
+        #changeable {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            cursor: pointer;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="changeable">Текст для редактирования</div>
+    <div id="changeable">Нажмите Ctrl+E для редактирования текста</div>
 
     <script>
         'use strict';
@@ -18,33 +30,36 @@
         let textarea = null;
 
         document.onkeydown = function (event) {
-            if (event.ctrlKey && event.code === 'KeyE') {
+
+            if (event.ctrlKey && event.key === 'e') {
                 event.preventDefault();
-                if (!textarea) {
+                if (!textarea) { 
                     textarea = document.createElement('textarea');
-                    textarea.value = div.innerHTML;
+                    textarea.value = div.innerHTML; // Сохраняем текущее содержимое в textarea
                     div.replaceWith(textarea);
                     textarea.focus();
                 }
             }
-            else if (event.ctrlKey && event.code === 'KeyS') {
+
+            else if (event.ctrlKey && event.key === 's') {
                 event.preventDefault();
                 if (textarea) {
-                    div.innerHTML = textarea.value;
+                    div.innerHTML = textarea.value; // Сохраняем изменения в div
                     textarea.replaceWith(div);
                     textarea = null;
                 }
             }
-            else if (event.code === 'Escape') {
+
+            else if (event.key === 'Escape') {
                 if (textarea) {
-                    textarea.replaceWith(div);
+                    textarea.replaceWith(div); // Возвращаем div без сохранения изменений
                     textarea = null;
                 }
             }
         }
+
     </script>
 
 </body>
 
 </html>
-
