@@ -4,24 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editable Div</title>
-    <style>
-        #changeable {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 300px;
-            cursor: pointer;
-        }
-        textarea {
-            width: 300px;
-            height: 100px;
-        }
-    </style>
+    <title>textarea</title>
 </head>
 
 <body>
 
-    <div id="changeable">Нажмите Ctrl+E для редактирования текста</div>
+    <div id="changeable">Текст для редактирования</div>
 
     <script>
         'use strict';
@@ -30,36 +18,37 @@
         let textarea = null;
 
         document.onkeydown = function (event) {
+            function isCtrlPlusKey(keys) {
+                return event.ctrlKey && keys.includes(event.key.toLowerCase());
+            }
 
-            if (event.ctrlKey && event.key === 'e') {
+            if (isCtrlPlusKey(['e', 'у'])) {  
                 event.preventDefault();
-                if (!textarea) { 
+                if (!textarea) {
                     textarea = document.createElement('textarea');
-                    textarea.value = div.innerHTML; // Сохраняем текущее содержимое в textarea
+                    textarea.value = div.innerHTML;
                     div.replaceWith(textarea);
                     textarea.focus();
                 }
             }
-
-            else if (event.ctrlKey && event.key === 's') {
+            else if (isCtrlPlusKey(['s', 'ы'])) {  
                 event.preventDefault();
                 if (textarea) {
-                    div.innerHTML = textarea.value; // Сохраняем изменения в div
+                    div.innerHTML = textarea.value;
                     textarea.replaceWith(div);
                     textarea = null;
                 }
             }
-
             else if (event.key === 'Escape') {
                 if (textarea) {
-                    textarea.replaceWith(div); // Возвращаем div без сохранения изменений
+                    textarea.replaceWith(div);
                     textarea = null;
                 }
             }
         }
-
     </script>
 
 </body>
 
 </html>
+
