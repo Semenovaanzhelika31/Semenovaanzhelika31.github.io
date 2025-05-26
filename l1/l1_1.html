@@ -28,34 +28,38 @@
         'use strict'; 
 
         function calculatePension(event) {
-            event.preventDefault();
+            event.preventDefault(); 
 
-            const age = parseInt(document.getElementById("age").value);
-            const gender = document.querySelector('input[name="gender"]:checked');
+            const ageInput = document.getElementById("age");
+            const age = parseInt(ageInput.value, 10);
+            const genderRadio = document.querySelector('input[name="gender"]:checked');
             const resultArea = document.getElementById("result");
 
-            if (isNaN(age) || !gender) {
+            if (isNaN(age) || !genderRadio) {
                 resultArea.value = "Пожалуйста, введите корректный возраст и выберите пол.";
-                return;
+                return false; 
             }
 
             let message = "";
 
             if (age >= 0 && age <= 17) {
                 message = "Вам работать ещё рано — учитесь";
-            } else if ((age >= 18 && age <= 59 && gender.value === "male") || (age >= 18 && age <= 54 && gender.value === "female")) {
+            } else if ((age >= 18 && age <= 59 && genderRadio.value === "male") || (age >= 18 && age <= 54 && genderRadio.value === "female")) {
                 message = "Вам ещё работать и работать";
-            } else if ((age >= 60 && age <= 64 && gender.value === "male") || (age >= 55 && age <= 59 && gender.value === "female")) {
+            } else if ((age >= 60 && age <= 64 && genderRadio.value === "male") || (age >= 55 && age <= 59 && genderRadio.value === "female")) {
                 message = "Скоро пенсия!";
-            } else if ((age >= 65 && gender.value === "male") || (age >= 60 && gender.value === "female")) {
+            } else if ((age >= 65 && genderRadio.value === "male") || (age >= 60 && genderRadio.value === "female")) {
                 message = "Вам пора на пенсию";
             } else {
                 message = "Да кто ты такой?";
             }
 
             resultArea.value = message;
+
+            return false; 
         }
     </script>
 
 </body>
 </html>
+
