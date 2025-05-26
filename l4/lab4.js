@@ -52,7 +52,7 @@ class Book {
 }
 
 try {
-    let book1 = new Book('Game of Thrones', 1925, 2300);
+    let book1 = new Book('1984', 1949, 1000);
     book1.show();
     book1.price = 1900;
     book1.show();
