@@ -9,7 +9,7 @@
 
 <body>
 
-    <div id="changeable"></div>
+    <div id="changeable">Нажмите Ctrl+E для редактирования текста</div>
 
     <script>
         'use strict';
@@ -18,8 +18,7 @@
         let textarea = null;
 
         document.onkeydown = function (event) {
-            if (event.ctrlKey && event.key === 'e') {
-
+            if (event.ctrlKey && (event.key === 'e' || event.key === 'Enter')) {
                 event.preventDefault();
                 if (!textarea) { 
                     textarea = document.createElement('textarea');
@@ -27,23 +26,21 @@
                     div.replaceWith(textarea);
                     textarea.focus();
                 }
-
             }
-            else if (event.ctrlKey && event.key === 's') {
+
+            else if (event.ctrlKey && (event.key === 's' || event.key === 'Escape')) {
                 event.preventDefault();
                 if (textarea) {
-                    div.innerHTML = textarea.value;
-                    textarea.replaceWith(div);
-                    textarea = null;
-
-                }
-                else if (event.key === 'Escape') {
-                    if (textarea) {
+                    if (event.key === 's') {
+                        div.innerHTML = textarea.value;
+                        textarea.replaceWith(div);
+                        textarea = null;
+                    } else if (event.key === 'Escape') {
                         textarea.replaceWith(div);
                         textarea = null;
                     }
                 }
-            };
+            }
         }
 
     </script>
