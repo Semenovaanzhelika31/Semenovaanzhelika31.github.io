@@ -18,7 +18,7 @@
         let textarea = null;
 
         document.onkeydown = function (event) {
-            if (event.ctrlKey && (event.key === 'e' || event.key === 'Enter')) {
+            if (event.ctrlKey && (event.keyCode === 69 || event.keyCode === 13)) {
                 event.preventDefault();
                 if (!textarea) { 
                     textarea = document.createElement('textarea');
@@ -27,15 +27,14 @@
                     textarea.focus();
                 }
             }
-
-            else if (event.ctrlKey && (event.key === 's' || event.key === 'Escape')) {
+            else if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 27)) {
                 event.preventDefault();
                 if (textarea) {
-                    if (event.key === 's') {
+                    if (event.keyCode === 83) {
                         div.innerHTML = textarea.value;
                         textarea.replaceWith(div);
                         textarea = null;
-                    } else if (event.key === 'Escape') {
+                    } else if (event.keyCode === 27) {
                         textarea.replaceWith(div);
                         textarea = null;
                     }
